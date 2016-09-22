@@ -1,12 +1,101 @@
 <!DOCTYPE html>
 <html>
+
       <head>
+
             <title>Get lost!</title>
+
             <script>
-                var answer = prompt("Three doors appear before you. The first has stripes, the second is pink, and the last one has a "Keep Out" sign on it. Which door do you want to open?");
-                  alert(answer);
+
+            // This is the "Keep Out" door.
+
+                    function forbiddenDoor() {
+
+                                  alert("It's very dark.");
+
+                                  alert("You can see a faint outline of something...");
+
+                                  alert("\"Keep Out.\"");
+
+                                  nothingPrompt();
+
+                                             };
+            // This should run after the forbiddenDoor alerts.
+
+                     function nothingPrompt() {
+
+                                  var nothing = prompt("You fall into dark water. You can’t see anything. You can’t feel anything. There is nothing, though you might be able to swim.");
+
+                                  if (nothing === "swim") {
+
+                                        nothingPrompt();
+
+                                                           }
+
+                                  else if (nothing === "nothing") {
+
+                                        alert("You do nothing.")
+
+                                     // I want the user to either win or get transported to a different door
+
+                                     // I'll let them win for now.
+
+                                        alert("You win.")
+
+                                                                  }
+
+                                  else {
+
+                                        alert("You can't do that! You can only do nothing.");
+
+                                        nothingPrompt();
+
+                                       };
+
+                                               };
+
+            // This function should contain all other functions.
+
+
+                      function getLost() {
+
+                                  var answer = prompt("Three doors appear before you. The first has stripes, the second is blue, and the last one has a sign that says \"Keep Out\" on it. Which door do you want to open?");
+
+                                  if (answer === "keep out") {
+
+                                        forbiddenDoor();
+
+                                                                  }
+
+                                  else if ( answer === "blue") {
+
+                                        alert("You chose the blue door.");
+                                        getLost();
+                                                                     }
+
+                                  else if (answer === "stripes") {
+                                        alert("You chose the striped door.");
+                                        getLost();
+                                  }
+
+                                  else {
+
+                                        alert("No! That is not a door that you can open.");
+
+                                        alert("The choices are stripes, blue, and keep out.");
+
+                                        getLost();
+
+                                       };
+
+                                         };
+
+                   // This is the start of the actual code that will run.
+
+                      getLost();
+
             </script>
+
       </head>
-      <body>
-      </body>
+
 </html>
