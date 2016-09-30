@@ -1,1 +1,37 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <script>
+      function rpc() {
+        var ps1 = 0
+        var ps2 = 0
+        var p1 = prompt("Player 1, Rock, Paper or Scissors?");
+        var p2 = prompt("Player 2, Rock, Paper or Scissors?");
+        // Ties!
+        if (p1 === "rock" && p2 === "rock") {
+          alert("Player 1 and Player 2 furiously bump fists.");
+          alert("You are tied!");
+        } else if (p1 === "paper" && p2 === "paper") {
+          alert("Player 1 and Player 2 high five each other.");
+          alert("You are tied!")
+        } else if (p1 === "scissors" && p2 === "scissors"){
+          alert("Player 1 makes a peace sign at Player 2.");
+          alert("You are tied!");
+          // Player 1 : Rock
+        } else if (p1 === "rock" && p2 === "paper") {
+          alert("Player 2 covers Player 1's fist. Player 2 is victorious.");
+          ps2++;
+        } else if (p1 === "rock" && p2 === "scissors") {
+          alert("Player 1 smashes Player 2's weak fingers. Player 1 is victorious.");
+          ps1++;
+          // Player 1 : Paper
+        } else if (p1 === "paper" && p2);
+    };
+    rpc();
+    </script>
+  </body>
+</html>
