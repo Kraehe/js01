@@ -6,18 +6,7 @@
   </head>
   <body>
     <script>
-        function paprompt() {
-          var pap = prompt("Would you like to play again? ( Yes or No )");
-          if (pap === "yes") {
-            rpc();
-          } else if (pap === "no") {
-            alert("Okay! Bye!!!");
-          } else {
-            alert("Sorry, I didn't get that.");
-            paprompt();
-          };
-        };
-        function rpc() {
+      function rpc() {
         var ps1 = 0
         var ps2 = 0
         var p1 = prompt("Player 1, Rock, Paper or Scissors?");
@@ -28,7 +17,7 @@
           alert("You are tied!");
         } else if (p1 === "paper" && p2 === "paper") {
           alert("Player 1 and Player 2 high five each other.");
-          alert("You are tied!");
+          alert("You are tied!")
         } else if (p1 === "scissors" && p2 === "scissors"){
           alert("Player 1 makes a peace sign at Player 2.");
           alert("You are tied!");
@@ -40,39 +29,9 @@
           alert("Player 1 smashes Player 2's weak fingers. Player 1 is victorious.");
           ps1++;
           // Player 1 : Paper
-        } else if (p1 === "paper" && p2 === "rock") {
-          alert("Player 1 covers Player 2's fist. Player 1 is victorious.");
-          ps1++;
-        } else if (p1 === "paper" && p2 === "scissors") {
-          alert("Player 1's hand is 'cut' by Player 2's index and middle fingers. Player 2 wins the round!");
-          ps2++;
-        // Player 1 : Scissors
-        } else if (p1 === "scissors" && p2 === "rock") {
-          alert("Player 1's fingers are crushed by Player 2's fist. Player 2 is victorious");
-          ps2++;
-        } else if (p1 === "scissors" && p2 === "paper") {
-          alert("Player 1 aggressively 'cuts' up Player 2's hand with their fingers. Player 1 wins the round!");
-          ps1++;
-        // Player 2 : Rock
-        } else if (p2 === "rock" && p1 === "paper") {
-          alert("Player 1 covers Player 2's fist. Player 1 is victorious.");
-          ps2++;
-        } else if (p2 === "rock" && p1 === "scissors") {
-          alert("Player 2 smashes Player 1's weak fingers. Player 2 is victorious.");
-          ps1++;
-        // Player 2 : Paper
-        } else if (p2 === "paper" && p1 === "rock") {
-          alert("Player 2 covers Player 1's fist. Player 2 is victorious.");
-          ps2++;
-        } else if (p2 === "paper" && p1 === "scissors") {
-          alert("Player 2's hand is 'cut' by Player 1's index and middle fingers. Player 1 wins the round!");
-          ps1++;
-        } else {
-          alert("That is not valid.");
-        };
-        paprompt();
-        };
+        } else if (p1 === "paper" && p2);
+    };
+    rpc();
     </script>
-    <button onClick="rpc();">Wanna play?</button>
   </body>
 </html>
