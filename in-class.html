@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+    // A log is just a dismembered tree leg....
+      function log() {
+        console.log("LEG ACTIVATED");
+      };
+      function leg() {
+        console.log("CLICK THE LEG!!");
+      };
+      function lug() {
+        console.log("DO NOT LEAVE. COME BACK!");
+      };
+      function complain() {
+        console.log("NO! NO! NO!");
+      };
+      function welcome() {
+          console.log("Welcome to this input. Please do not type.");
+      };
+    </script>
+    <button
+    onClick="log();"
+    onmouseenter="leg();"
+    onmouseleave="lug();"
+    >Click me leg!</button>
+
+    <input
+    id="infinite input"
+    autofocus=""
+    placeholder="only type leg"
+    type="text"
+    onclick="welcome();"
+    onkeypress="complain();"
+    ></input>
+  </body>
+</html>
