@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>INPUT NAME</title>
+</head>
+<body>
+  <script>
+  function go() {
+  var name = document.getElementById("nameInput");
+
+  console.log(name.value);
+  scared = document.getElementById("scary");
+  scared.textContent = "AAAAAAH, IT'S " + name.value.toUpperCase() + "!!!!!1!111!!!!!";
+
+}
+</script>
+<input type="text" placeholder="insert NAME" id="nameInput"></input>
+<button onclick="go();">GO</button>
+<p id="scary"></p>
+
+</body>
+</html>
