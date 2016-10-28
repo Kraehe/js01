@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <title>CraftyJS Intro</title>
+    <script src="https://rawgit.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+  </head>
+  <body>
+    <script>
+      function l1() {
+        Crafty.init();
+
+        // player is an entity
+        // entities have capabilities
+        var player = Crafty.e("Player, 2D, DOM, Image, Twoway, Gravity, Solid, Collision").image("pepe.png");
+        player.attr({x: 500, y: 200, w: 50, h: 50});
+        player.image("pepe.png");
+        player.twoway(500, 300);
+        player.gravity("Block");
+
+        var text = Crafty.e("2D, DOM, Text").attr({ x: 500, y: 200, w: 100, h: 40 }).text("Level One: Pepe")
+        .textColor('#57873D');
+
+        var block = Crafty.e("Block, 2D, DOM, Color");
+        block.attr({x:500, y:300, w:300, h:50});
+        block.color("green");
+
+        var block1 = Crafty.e("Block, 2D, DOM, Color");
+        block1.attr({x: 100, y:400, w:300, h:50});
+        block1.color("green");
+
+        var goal = Crafty.e("Solid, Collision, 2D, DOM, Image").image("trash-clip.png");
+        goal.attr({x: 500, y: 500, w:100, h:100});
+        goal.image("trash-clip.png");
+        goal.onHit("Player", win);
+
+        function win() {
+            alert("You WIIIIIINNNNNN!");
+            player.destroy();
+            block.destroy();
+            block1.destroy();
+            goal.destroy();
+            text.destroy()
+            Crafty.stop();
+            l2();
+          };
+
+      };
+      function l2() {
+                Crafty.init();
+        // player is an entity
+        // entities have capabilities
+        var player = Crafty.e("Player, 2D, DOM, Color, Twoway, Gravity, Solid, Collision");
+        player.attr({x: 500, y: 200, w: 40, h: 40});
+        player.color("yellow");
+        player.twoway(500, 400);
+        player.gravity("Block");
+
+        var block = Crafty.e("Block, 2D, DOM, Color");
+        block.attr({x:900, y:200, w:300, h:50});
+        block.color("grey");
+
+        var block1 = Crafty.e("Block, 2D, DOM, Color");
+        block1.attr({x: 500, y:400, w:300, h:50});
+        block1.color("grey");
+
+        var goal = Crafty.e("Solid, Collision, 2D, DOM, Color");
+        goal.attr({x:400, y: 500, w:30, h:20});
+        goal.color("red");
+        goal.onHit("Player", win);
+
+        function congrats() {
+         var hooray = Crafty.e("2D, DOM, Image").image("winner.png");
+          hooray.image("winner.png")
+          hooray.attr({x: center, y: center});
+        }
+        function win() {
+            alert("You WIIIIIINNNNNN!");
+            player.destroy();
+            block.destroy();
+            block1.destroy()
+            goal.destroy;
+            Crafty.stop();
+            congrats();
+          };
+
+
+      }
+      window.onload = l1;
+    </script>
+  </body>
+</html>
