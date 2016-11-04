@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Meme</title>
+    <script src="https://rawgit.com/craftyjs/Crafty/release/dist/crafty-min.js"></script>
+  </head>
+  <body>
+    <script>
+      function startGame() {
+        Crafty.init();
+
+        Crafty.defineScene("pepe1",
+                            function() {
+                              var pepe = Crafty.e("Pepe, 2D, DOM, Image, Twoway, Solid, Collision, Gravity")
+                              pepe.attr({x:100, y:100, w:50, h:50});
+                            }
+                          );
+
+        Crafty.enterScene("pepe1");
+      };
+      window.onload = startGame;
+    </script>
+  </body>
+</html>
+
 <!-- Old index.html stuffs -->
 
 
