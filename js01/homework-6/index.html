@@ -29,7 +29,7 @@
                               block1.attr({x: 100, y:400, w:300, h:50});
                               block1.color("green");
 
-                              var goal = Crafty.e("Solid, Collision, 2D, DOM, Image").image("trash-clip.png");
+                              var goal = Crafty.e("Solid, Collision, 2D, DOM, Image");
                               goal.attr({x: 500, y: 500, w:100, h:100});
                               goal.image("trash-clip.png");
                               goal.onHit("Player", win);
