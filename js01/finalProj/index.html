@@ -12,10 +12,10 @@
 
       Crafty.defineScene("start",
       function() {
-        var logo = Crafty.e("2D, DOM, Image, Mouse");
-        logo.attr({x:400, y:300, w:200, h:100});
-        logo.image("activate.png");
-        logo.bind("DoubleClick", function() {
+        var loggo = Crafty.e("2D, DOM, Image, Mouse");
+        loggo.attr({x:400, y:300, w:200, h:100});
+        loggo.image("activate.png");
+        loggo.bind("DoubleClick", function() {
           alert("BAD! BAD! BAD!");
           Crafty.enterScene("nodonttouchthat");
         });
