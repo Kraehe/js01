@@ -9,6 +9,13 @@
     <script>
     function startGame() {
       Crafty.init();
+      //Sounds!
+      Crafty.audio.add("ded", "sounds/ded.mp3");
+      Crafty.audio.add("pranked", "sounds/pranked.mp3");
+      Crafty.audio.add("notouch", "sounds/notouch.mp3");
+
+
+
 
       var pep = 0
 
@@ -17,134 +24,230 @@
       Crafty.defineScene("start",
       function() {
         var loggo = Crafty.e("2D, DOM, Image, Mouse");
-        loggo.attr({x:300, y:50, w:200, h:100});
+        loggo.attr({x:550, y:50, w:200, h:100});
         loggo.image("pquest.png");
-        loggo.bind("DoubleClick", function() {
-          alert("NO DON'T TOUCH THAT");
-          Crafty.enterScene("notouch");
-        });
         var begin = Crafty.e("2D, DOM, Image, Mouse");
-        begin.attr({x:400, y:100, w:300, h:200});
+        begin.attr({x:550, y:200, w:300, h:200});
         begin.image("starT.png");
         begin.bind("Click", function() {
           Crafty.enterScene("pepe");
         });
+        var ha = Crafty.e("2D, DOM, Text")
+                ha.attr({ x: 550, y: 500, z:0, w: 400, h: 50 });
+                ha.text("'Star T'. Start. Get it? Haha! Ha....ha.......");
+                ha.textColor("black");
+                ha.textFont({ size: '20px', weight: 'bold' });
 
         if (pep > 0) {
+          loggo.bind("DoubleClick", function() {
+            Crafty.enterScene("notouch");
+          });
 
-        } else {
+          ha.text("DO NOT DO WHAT THE SALAMADER MAN TOLD YOU TO DO...")};
+      });
+      Crafty.defineScene("notouch", function(){
+        Crafty.audio.play("notouch");
 
-        };
+        var rob = Crafty.e("2D, DOM, Image")
+        rob.attr({ x:0, y:0, z:0, w:Crafty.viewport.width, h:Crafty.viewport.height});
+        rob.image("rob.png")
+
+        var tbc = Crafty.e("2D, DOM, Image")
+        tbc.attr({ x:0, y:600, z:0, w:486, h:110});
+        tbc.image("med.png")
+
+        var pe = Crafty.e("2D, DOM, Text")
+                pe.attr({ x: 550, y: 500, z:0, w: 400, h: 50 });
+                pe.text("This is only the beginning of Pepe's Quest...");
+                pe.textColor("magenta");
+                pe.textFont({ size: '40px', weight: 'bold', family:'Comic Sans MS'});
+
+
+
+      })
+
+      Crafty.defineScene("prankd", function(){
+        var salm = Crafty.e("2D, DOM, Image, Mouse");
+        salm.attr({ x:0, y:0, z:0, w:Crafty.viewport.width, h:Crafty.viewport.height});
+        salm.image("salm.png");
+        salm.bind("Click", function(){
+          Crafty.enterScene("start");
+        })
+
+        Crafty.audio.play("pranked");
+
+        var q = Crafty.e("2D, DOM, Text")
+        q.attr({ x: 300, y: 500, z:0, w: 1500, h: 50 });
+                q.text("Click to continue, then doubleclick 'Pepe Quest', Pepe Guest.");
+                q.textColor("green");
+                q.textFont({ size: '30px', weight: 'bold' });
       });
 
       Crafty.defineScene("pepe",
-                          function() {
+        function() {
 
+        var pepe = Crafty.e("Pepe, 2D, DOM, Image, Twoway, Solid, Collision, Gravity")
+              pepe.attr({x:100, y:100, z:2, w:50, h:50});
+              pepe.image("pepe.png");
+              pepe.twoway(280, 300);
+              pepe.gravity("Block");
 
-                            var pepe = Crafty.e("Pepe, 2D, DOM, Image, Twoway, Solid, Collision, Gravity")
-                            pepe.attr({x:100, y:100, z:2, w:50, h:50});
-                            pepe.image("pepe.png");
-                            pepe.twoway(280, 300);
-                            pepe.gravity("Block");
+        var q = Crafty.e("2D, DOM, Text")
+                q.attr({ x: 400, y: 50, z:0, w: 400, h: 50 });
+                q.text("Welcome to Pepe Quest, you are our Pepe Guest.");
+                q.textColor("green");
+                q.textFont({ size: '20px', weight: 'bold' });
 
-                            var text = Crafty.e("2D, DOM, Text")
-                            text.attr({ x: 500, y: 200, z:0, w: 100, h: 40 })
-                            text.text("Welcome to Pepe Quest, you are our Pepe Guest.")
-                            text.textColor("green");
-                              // S
-                            var st = Crafty.e("2D, DOM, Color");
-                            st.attr({x:100, y:200, w:150, h:50});
+        var inst = Crafty.e("2D, DOM, Text")
+                inst.attr({ x: 400, y: 100, z:0, w: 400, h: 50 });
+                inst.text("Head back into your birthplace, Pepe. Then you will find redemption.");
+                inst.textColor("green");
+                inst.textFont({ size: '20px', weight: 'bold' });
+                // S
+        var st = Crafty.e("2D, DOM, Color");
+                            st.attr({x:0, y:200, w:150, h:50});
                             st.color("green");
 
                             var smt = Crafty.e("2D, DOM, Color");
-                            smt.attr({x:100, y:250, w:50, h:50});
+                            smt.attr({x:0, y:250, w:50, h:50});
                             smt.color("green");
 
                             var sm = Crafty.e("Block, 2D, DOM, Color");
-                            sm.attr({x:100, y:300, w:150, h:50});
+                            sm.attr({x:0, y:300, w:150, h:50});
                             sm.color("green");
 
                             var smb = Crafty.e("2D, DOM, Color");
-                            smb.attr({x:200, y:350, w:50, h:50});
+                            smb.attr({x:100, y:350, w:50, h:50});
                             smb.color("green");
 
                             var sb = Crafty.e("2D, DOM, Color");
-                            sb.attr({x: 100, y:400, w:150, h:50});
+                            sb.attr({x:0, y:400, w:150, h:50});
                             sb.color("green");
                               // A
                             var at = Crafty.e("Block, 2D, DOM, Color");
-                            at.attr({x:300, y:200, w:150, h:50});
+                            at.attr({x:200, y:200, w:150, h:50});
                             at.color("green");
 
                             var al = Crafty.e("2D, DOM, Color");
-                            al.attr({x:300, y:250, w:50, h:200});
+                            al.attr({x:200, y:250, w:50, h:200});
                             al.color("green");
 
                             var am = Crafty.e("2D, DOM, Color");
-                            am.attr({x:350, y:300, w:50, h:50});
+                            am.attr({x:250, y:300, w:50, h:50});
                             am.color("green");
 
                             var ar = Crafty.e("2D, DOM, Color");
-                            ar.attr({x:400, y:250, w:50, h:200});
+                            ar.attr({x:300, y:250, w:50, h:200});
                             ar.color("green");
                               // d
                             var dm = Crafty.e("2D, DOM, Color");
-                            dm.attr({x:500, y:300, w:100, h:50});
+                            dm.attr({x:400, y:300, w:100, h:50});
                             dm.color("green");
 
                             var dl = Crafty.e("2D, DOM, Color");
-                            dl.attr({x:500, y:350, w:50, h:100});
+                            dl.attr({x:400, y:350, w:50, h:100});
                             dl.color("green");
 
                             var dmb = Crafty.e("Block, 2D, DOM, Color");
-                            dmb.attr({x:550, y:400, w:50, h:50});
+                            dmb.attr({x:450, y:400, w:50, h:50});
                             dmb.color("green");
 
                             var dr = Crafty.e("2D, DOM, Color");
-                            dr.attr({x:600, y:200, w:50, z:0, h:250});
+                            dr.attr({x:500, y:200, w:50, z:0, h:250});
                             dr.color("green");
                             // F
                             var fl = Crafty.e("2D, DOM, Color");
-                            fl.attr({x:800, y:200, w:50, h:250});
+                            fl.attr({x:700, y:200, w:50, h:250});
                             fl.color("green");
 
                             var ft = Crafty.e("2D, DOM, Color");
-                            ft.attr({x:800, y:200, w:150, h:50});
+                            ft.attr({x:700, y:200, w:150, h:50});
                             ft.color("green");
 
                             var fb = Crafty.e("Block, 2D, DOM, Color");
-                            fb.attr({x:850, y:300, w:100, h:50});
+                            fb.attr({x:750, y:300, w:100, h:50});
                             fb.color("green");
                             // r
                             var rl = Crafty.e("2D, DOM, Color");
-                            rl.attr({x:1000, y:300, w:50, h:150});
+                            rl.attr({x:900, y:300, w:50, h:150});
                             rl.color("green");
 
                             var rt = Crafty.e("Block, 2D, DOM, Color");
-                            rt.attr({x:1000, y:300, w:100, h:50});
+                            rt.attr({x:900, y:300, w:100, h:50});
                             rt.color("green");
                             // O
                             var ol = Crafty.e("2D, DOM, Color");
-                            ol.attr({x:1100, y:200, w:50, h:250});
+                            ol.attr({x:1050, y:200, w:50, h:250});
                             ol.color("green");
 
+                            var or = Crafty.e("2D, DOM, Color");
+                            or.attr({x:1150, y:200, w:50, h:250});
+                            or.color("green");
+
+                            var omt = Crafty.e("2D, DOM, Color");
+                            omt.attr({x:1100, y:200, w:50, h:50});
+                            omt.color("green");
+
+                            var omb = Crafty.e("Block, 2D, DOM, Color");
+                            omb.attr({x:1100, y:400, w:50, h:50});
+                            omb.color("green");
+                            // G
+                            var gl = Crafty.e("Block, 2D, DOM, Color");
+                            gl.attr({x:1250, y:200, w:50, h:250});
+                            gl.color("green");
+
+                            var gt = Crafty.e("Block, 2D, DOM, Color");
+                            gt.attr({x:1300, y:200, w:100, h:50});
+                            gt.color("green");
+
+                            var gr = Crafty.e("2D, DOM, Color");
+                            gr.attr({x:1350, y:300, w:50, h:150});
+                            gr.color("green");
+
+                            var gb = Crafty.e("2D, DOM, Color");
+                            gb.attr({x:1300, y:400, w:50, h:50});
+                            gb.color("green");
 
                             var goal = Crafty.e("Solid, Collision, 2D, DOM, Image");
-                            goal.attr({x: 500, y: 500, w:100, h:100});
+                            goal.attr({x: 1280, y: 100, w:100, h:100});
                             goal.image("trash-clip.png");
                             goal.onHit("Pepe", function() {
                               pep++
                               Crafty.enterScene("prankd");
                             });
+                            //plays sound when player hits it
+                            var dedtrig = Crafty.e("Collision, 2D, DOM")
+                            dedtrig.attr({w:Crafty.viewport.width, h:10, y:500, x:0});
+                            dedtrig.onHit("Pepe", function(){
+                              Crafty.audio.play("ded");
+                              var isPlaying = Crafty.audio.isPlaying('ded');
+                              if (isPlaying === false){
+                                Crafty.enterScene("pepe");
+                              };
+
+                            });
 
                             var fall = Crafty.e("Solid, Collision, 2D, DOM")
                             fall.attr({w:Crafty.viewport.width, h:10, y:Crafty.viewport.height, x:0});
                             fall.onHit("Pepe", function(){
-                              var hnng = Crafty.e("2D, DOM, Text")
-                              hnng.attr({ x: 500, y: 300, z:0, w: 300, h: 450 })
-                              hnng.text("YOU DIED")
-                              hnng.textColor("red");
-                              Crafty.enterScene("pepe")
+
+                              pepe.image("spepe.png");
+
+                              var opaque = Crafty.e("2D, DOM, Color, Mouse");
+                              opaque.attr({ x:0, y:0, z:0, w:Crafty.viewport.width, h:Crafty.viewport.height});
+                              opaque.color("black");
+                              opaque.bind("Click", function(){
+                                Crafty.enterScene("pepe");
+                              });
+
+
+                              var yded = Crafty.e("2D, DOM, Text");
+                              yded.attr({ x:250, y:200, z:0, w:Crafty.viewport.width, h:Crafty.viewport.height});
+                              yded.text("YOU DIED");
+                              yded.textColor("red");
+                              yded.textFont({size: '200px', weight: 'bold', family:'OptimusPrinceps'});
+
+                              // Crafty.enterScene("pepe")
                               //create a function that slowly zooms in on pepe while playing the sad violin music
                               //or create a function that makes the dark souls 'you died' screen show up w/ the sound effect
                             });
