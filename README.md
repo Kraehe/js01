@@ -1,4 +1,4 @@
-# nano-hacker-academy
+# nano hacker academy
 My NHA homework repository.
 
 # js01
